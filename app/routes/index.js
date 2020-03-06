@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const notFound = require('./v1/404').index;
+const authRouter = require('./v1/auth');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+module.exports = function (app) {
+  app.use('/auth', authRouter);
 
-module.exports = router;
+  app.use(notFound);
+};
