@@ -9,3 +9,16 @@ exports.getLogin = async params => {
         }
     });
 }
+
+exports.updateTokenById = async params =>{
+    console.log("duar===========>" ,params);
+    
+     return Users.update({
+        token : params.token
+     },
+     {
+        where : {
+            id : params.id
+        }
+     });
+}
